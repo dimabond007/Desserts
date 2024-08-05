@@ -54,7 +54,11 @@ export default function DesertItem({
       if (updatedCartItems[existingIndex].quantity === 0) {
         updatedCartItems.splice(existingIndex, 1);
       }
-      setCartItems([...updatedCartItems]);
+      if (updatedCartItems.length === 0) {
+        setCartItems(null);
+      } else {
+        setCartItems([...updatedCartItems]);
+      }
     }
   }
 
